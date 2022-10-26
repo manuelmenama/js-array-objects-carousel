@@ -60,12 +60,15 @@ let generatedMiniature = document.getElementsByClassName("miniature-img");
 generatedImages[imageCounter].classList.add("active");
 generatedMiniature[imageCounter].classList.add("active");
 
+activateMiniature()
+
 arrowBack.addEventListener("click", function(){
   fwdBack(false);
 });
 arrowFwd.addEventListener("click", function(){
   fwdBack(true);
 });
+
 
 function generateImage () {
   imageContainer.innerHTML = "";
@@ -74,11 +77,11 @@ function generateImage () {
   imagesCollection.forEach((image) => {
     let imageCreated = `
     <div class="printed-image">
-      <img class="" src="${image.imageLink}" alt="${image.countryName}">
-      <div class="text-box">
-        <h3 class="location">${image.countryName}</h3>
-        <p class="description">${image.description}</p>
-      </div>
+    <img class="" src="${image.imageLink}" alt="${image.countryName}">
+    <div class="text-box">
+    <h3 class="location">${image.countryName}</h3>
+    <p class="description">${image.description}</p>
+    </div>
     </div>
     `;
     imageContainer.innerHTML += imageCreated;
@@ -88,6 +91,24 @@ function generateImage () {
     miniatureContainer.innerHTML += miniatureCreated;
   });
 }
+
+function activateMiniature() {
+  let idCustomCounter = 0;
+  for(let miniature of generatedMiniature){
+    miniature.idCustom = idCustomCounter;
+    idCustomCounter++;
+    miniature.addEventListener("click", activateImage);
+  }
+}
+
+function activateImage() {
+  generatedImages[imageCounter].classList.remove("active");
+  generatedMiniature[imageCounter].classList.remove("active");
+  console.log(this);
+  imageCounter = this.idCustom;
+  generatedImages[imageCounter].classList.add("active");
+  generatedMiniature[imageCounter].classList.add("active");
+};
 
 function fwdBack(isFwd) {
   generatedImages[imageCounter].classList.remove("active");

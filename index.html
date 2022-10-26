@@ -5,6 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css' integrity='sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==' crossorigin='anonymous'/>
+
   <link rel="stylesheet" href="css/style.css">
   <title>&Egrave; l'ora del nuovo Carosello</title>
 </head>
@@ -14,11 +16,23 @@
 
     <div class="card">
       <div class="photo-displayed">
-
+        <img src="http://www.viaggiareonline.it/wp-content/uploads/2014/11/sweden_148857365.jpg" alt="">
       </div>
-      <div class="miniature-preiew">
-
+      <div class="miniature-preview">
+        <img class="active" src="http://www.viaggiareonline.it/wp-content/uploads/2014/11/sweden_148857365.jpg" alt="">
+        
       </div>
+      <div class="arrow arrow-back">
+        <i class="fa-solid fa-arrow-left"></i>
+      </div>
+      <div class="arrow arrow-fwd">
+        <i class="fa-solid fa-arrow-right"></i>
+      </div>
+    </div>
+    <div class="btn-container">
+      <button id="start" class="btn btn-start">Start</button>
+      <button id="stop" class="btn btn-stop hidden">Stop</button>
+      <button id="reverse" class="btn btn-reverse">Reverse</button>
     </div>
 
   </div>

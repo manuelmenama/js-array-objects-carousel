@@ -9,3 +9,108 @@
 body{
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+
+img{
+  max-width: 100%;
+}
+
+.btn{
+  background-color: white;
+  border: 2px solid royalblue;
+  color: royalblue;
+  font-weight: bold; 
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: color 1s, background-color 1s;
+}
+
+.btn:hover{
+  background-color: royalblue;
+  color: white;
+}
+
+.btn.btn-stop{
+  border: 2px solid tomato;
+  color: tomato;
+}
+
+.btn.btn-stop:hover{
+  background-color: tomato;
+  color: white;
+}
+
+.btn.hidden{
+  display: none;
+}
+
+.arrow{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: gainsboro;
+  text-align: center;
+  line-height: 30px;
+  position: absolute;
+}
+
+.arrow.arrow-back{
+  left: 15px;
+  bottom: 45px;
+}
+
+.arrow.arrow-fwd{
+  right: 15px;
+  bottom: 45px;
+}
+
+.debug{
+  background-color: rgba(255, 0, 0, 0.4);
+  border: 1px solid black;
+}
+
+.main-wrapper{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.card{
+  width: 750px;
+  height: 600px;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.photo-displayed{
+  height: 80%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.main-wrapper .photo-displayed img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.miniature-preview{
+  height: 20%;
+  width: 100%;
+  display: flex;
+}
+
+.main-wrapper .miniature-preview img{
+  width: calc(100% / 5);
+  height: 100%;
+  filter: brightness(50%);
+}
+
+.main-wrapper .miniature-preview img.active{
+  filter: brightness(100%);
+  border: 2px solid gainsboro;
+}
+
+

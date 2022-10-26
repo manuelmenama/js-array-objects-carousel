@@ -8,26 +8,35 @@
 
 body{
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  color: white;
+  color: beige;
+  background-color: beige;
 }
 
 img{
   max-width: 100%;
 }
 
+p{
+  text-shadow: 2px 2px 4px black;
+}
+
+h2{
+  text-shadow: 2px 2px 4px black;
+}
+
 .btn{
-  background-color: white;
+  background-color: beige;
   border: 2px solid royalblue;
   color: royalblue;
   font-weight: bold; 
   padding: 5px 10px;
   border-radius: 5px;
-  transition: color 1s, background-color 1s;
+  transition: color 0.5s, background-color 0.5s;
 }
 
 .btn:hover{
   background-color: royalblue;
-  color: white;
+  color: beige;
 }
 
 .btn.btn-stop{
@@ -37,7 +46,7 @@ img{
 
 .btn.btn-stop:hover{
   background-color: tomato;
-  color: white;
+  color: beige;
 }
 
 .btn.hidden{

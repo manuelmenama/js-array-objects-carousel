@@ -52,6 +52,7 @@ const imagesCollection = [
 
 let imageCounter = 0;
 let arrayLength = imagesCollection.length;
+let automatedCarousel;
 
 generateImage();
 
@@ -69,6 +70,28 @@ arrowFwd.addEventListener("click", function(){
   fwdBack(true);
 });
 
+btnStart.addEventListener("click", function(){
+  automatedCarousel = setInterval(function(){
+    fwdBack(true);
+  }, 2000);
+  btnStart.classList.add("hidden");
+  btnStop.classList.remove("hidden");
+});
+
+btnStop.addEventListener("click", function(){
+  clearInterval(automatedCarousel);
+  btnStart.classList.remove("hidden");
+  btnStop.classList.add("hidden");
+});
+
+btnReverse.addEventListener("click", function(){
+  automatedCarousel = setInterval(function(){
+    fwdBack(false);
+  }, 2000);
+  btnStart.classList.add("hidden");
+  btnStop.classList.remove("hidden");
+})
+
 
 function generateImage () {
   imageContainer.innerHTML = "";
@@ -79,7 +102,7 @@ function generateImage () {
     <div class="printed-image">
     <img class="" src="${image.imageLink}" alt="${image.countryName}">
     <div class="text-box">
-    <h3 class="location">${image.countryName}</h3>
+    <h2 class="location">${image.countryName}</h2>
     <p class="description">${image.description}</p>
     </div>
     </div>

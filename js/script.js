@@ -12,16 +12,20 @@ console.log('New Carousel loaded');
     - cambia la direzione del carosello
 */
 
+//contenitori della immagine attiva e delle miniature
 const imageContainer = document.querySelector(".photo-displayed");
 const miniatureContainer = document.querySelector(".miniature-preview");
 
+//frecce forward e back
 const arrowBack = document.querySelector(".arrow-back");
 const arrowFwd = document.querySelector(".arrow-fwd");
 
+//bottoni di controllo
 const btnStart = document.getElementById("start");
 const btnStop = document.getElementById("stop");
 const btnReverse = document.getElementById("reverse");
 
+//array di ogetti
 const imagesCollection = [
   {
     countryName: "Svezia",
@@ -50,19 +54,24 @@ const imagesCollection = [
   }
 ];
 
+
 let imageCounter = 0;
 let arrayLength = imagesCollection.length;
 let automatedCarousel;
 
+//stampo foto e miniature
 generateImage();
 
+//la prima foto active
 let generatedImages = document.getElementsByClassName("printed-image");
 let generatedMiniature = document.getElementsByClassName("miniature-img");
 generatedImages[imageCounter].classList.add("active");
 generatedMiniature[imageCounter].classList.add("active");
 
-activateMiniature()
+//funzione applicare idCustom e addEventListner
+activateMiniature();
 
+//controlli tramite frecce
 arrowBack.addEventListener("click", function(){
   fwdBack(false);
 });
@@ -70,6 +79,8 @@ arrowFwd.addEventListener("click", function(){
   fwdBack(true);
 });
 
+//inizio console di riproduzione automatizzata
+//start scompare e compare il btn stop
 btnStart.addEventListener("click", function(){
   automatedCarousel = setInterval(function(){
     fwdBack(true);
@@ -78,13 +89,16 @@ btnStart.addEventListener("click", function(){
   btnStop.classList.remove("hidden");
 });
 
+//stop disattiva sia il reverse che lo start
 btnStop.addEventListener("click", function(){
   clearInterval(automatedCarousel);
   btnStart.classList.remove("hidden");
   btnStop.classList.add("hidden");
 });
 
+//il reverse prima stoppa un eventuale start
 btnReverse.addEventListener("click", function(){
+  clearInterval(automatedCarousel);
   automatedCarousel = setInterval(function(){
     fwdBack(false);
   }, 2000);

@@ -15,6 +15,13 @@ console.log('New Carousel loaded');
 const imageContainer = document.querySelector(".photo-displayed");
 const miniatureContainer = document.querySelector(".miniature-preview");
 
+const arrowBack = document.querySelector(".arrow-back");
+const arrowFwd = document.querySelector(".arrow-fwd");
+
+const btnStart = document.getElementById("start");
+const btnStop = document.getElementById("stop");
+const btnReverse = document.getElementById("reverse");
+
 const imagesCollection = [
   {
     countryName: "Svezia",
@@ -43,6 +50,55 @@ const imagesCollection = [
   }
 ];
 
+let imageCounter = 0;
+let arrayLength = imagesCollection.length;
+
+generateImage();
+
+let generatedImages = document.getElementsByClassName("printed-image");
+let generatedMiniature = document.getElementsByClassName("miniature-img");
+generatedImages[imageCounter].classList.add("active");
+generatedMiniature[imageCounter].classList.add("active");
+
+arrowBack.addEventListener("click", function(){
+  fwdBack(false);
+});
+arrowFwd.addEventListener("click", function(){
+  fwdBack(true);
+});
+
 function generateImage () {
+  imageContainer.innerHTML = "";
+  miniatureContainer.innerHTML = "";
   
+  imagesCollection.forEach((image) => {
+    let imageCreated = `
+    <div class="printed-image">
+      <img class="" src="${image.imageLink}" alt="${image.countryName}">
+      <div class="text-box">
+        <h3 class="location">${image.countryName}</h3>
+        <p class="description">${image.description}</p>
+      </div>
+    </div>
+    `;
+    imageContainer.innerHTML += imageCreated;
+    let miniatureCreated = `
+    <img class="miniature-img" src="${image.imageLink}" alt="${image.countryName}">
+    `;
+    miniatureContainer.innerHTML += miniatureCreated;
+  });
+}
+
+function fwdBack(isFwd) {
+  generatedImages[imageCounter].classList.remove("active");
+  generatedMiniature[imageCounter].classList.remove("active");
+  if(isFwd){
+    imageCounter++;
+    if(imageCounter === imagesCollection.length) imageCounter = 0;
+  }else{
+    imageCounter--;
+    if(imageCounter < 0) imageCounter = arrayLength - 1;
+  }
+  generatedImages[imageCounter].classList.add("active");
+  generatedMiniature[imageCounter].classList.add("active");
 }

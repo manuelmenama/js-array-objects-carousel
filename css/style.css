@@ -95,10 +95,14 @@ img{
   height: 100%;
   width: 100%;
   object-fit: cover;
+  scale: 1.6;
+}
+
+.main-wrapper .photo-displayed .printed-image{
   display: none;
 }
 
-.main-wrapper .photo-displayed img.active{
+.main-wrapper .photo-displayed .printed-image.active{
   display: inline-block;
 }
 
@@ -124,6 +128,7 @@ img{
 .main-wrapper .miniature-preview img{
   width: calc(100% / 5);
   height: 100%;
+  object-fit: cover;
   filter: brightness(50%);
 }
 

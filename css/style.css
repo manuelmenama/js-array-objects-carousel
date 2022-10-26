@@ -8,6 +8,7 @@
 
 body{
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: white;
 }
 
 img{
@@ -94,6 +95,24 @@ img{
   height: 100%;
   width: 100%;
   object-fit: cover;
+  display: none;
+}
+
+.main-wrapper .photo-displayed img.active{
+  display: inline-block;
+}
+
+.printed-image{
+  position: relative;
+}
+
+.text-box{
+  width: 60%;
+  top: 0;
+  right: 0;
+  position: absolute;
+  text-align: right;
+  padding: 20px 20px 0 0;
 }
 
 .miniature-preview{

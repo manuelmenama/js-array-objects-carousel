@@ -138,6 +138,7 @@ function activateMiniature() {
   }
 }
 
+//attiva immagine con tocco della miniatura
 function activateImage() {
   generatedImages[imageCounter].classList.remove("active");
   generatedMiniature[imageCounter].classList.remove("active");

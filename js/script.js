@@ -56,7 +56,6 @@ const imagesCollection = [
 
 
 let imageCounter = 0;
-let arrayLength = imagesCollection.length;
 let automatedCarousel;
 
 //stampo foto e miniature
@@ -156,7 +155,7 @@ function fwdBack(isFwd) {
     if(imageCounter === imagesCollection.length) imageCounter = 0;
   }else{
     imageCounter--;
-    if(imageCounter < 0) imageCounter = arrayLength - 1;
+    if(imageCounter < 0) imageCounter = imagesCollection.length - 1;
   }
   generatedImages[imageCounter].classList.add("active");
   generatedMiniature[imageCounter].classList.add("active");

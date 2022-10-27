@@ -57,6 +57,7 @@ const imagesCollection = [
 
 let imageCounter = 0;
 let automatedCarousel;
+let isReverse = true;
 
 //stampo foto e miniature
 generateImage();
@@ -98,8 +99,9 @@ btnStop.addEventListener("click", function(){
 //il reverse prima stoppa un eventuale start
 btnReverse.addEventListener("click", function(){
   clearInterval(automatedCarousel);
+  isReverse = !isReverse;
   automatedCarousel = setInterval(function(){
-    fwdBack(false);
+    fwdBack(isReverse);
   }, 2000);
   btnStart.classList.add("hidden");
   btnStop.classList.remove("hidden");

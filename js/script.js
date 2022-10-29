@@ -65,8 +65,7 @@ generateImage();
 //la prima foto active
 let generatedImages = document.getElementsByClassName("printed-image");
 let generatedMiniature = document.getElementsByClassName("miniature-img");
-generatedImages[imageCounter].classList.add("active");
-generatedMiniature[imageCounter].classList.add("active");
+addClassActive();
 
 //funzione applicare idCustom e addEventListner
 activateMiniature();
@@ -130,6 +129,16 @@ function generateImage () {
   });
 }
 
+function removeClassActive() {
+  generatedImages[imageCounter].classList.remove("active");
+  generatedMiniature[imageCounter].classList.remove("active");
+}
+
+function addClassActive() {
+  generatedImages[imageCounter].classList.add("active");
+  generatedMiniature[imageCounter].classList.add("active");
+}
+
 function activateMiniature() {
   let idCustomCounter = 0;
   for(let miniature of generatedMiniature){
@@ -141,17 +150,14 @@ function activateMiniature() {
 
 //attiva immagine con tocco della miniatura
 function activateImage() {
-  generatedImages[imageCounter].classList.remove("active");
-  generatedMiniature[imageCounter].classList.remove("active");
+  removeClassActive();
   console.log(this);
   imageCounter = this.idCustom;
-  generatedImages[imageCounter].classList.add("active");
-  generatedMiniature[imageCounter].classList.add("active");
+  addClassActive();
 };
 
 function fwdBack(isFwd) {
-  generatedImages[imageCounter].classList.remove("active");
-  generatedMiniature[imageCounter].classList.remove("active");
+  removeClassActive();
   if(isFwd){
     imageCounter++;
     if(imageCounter === imagesCollection.length) imageCounter = 0;
@@ -159,6 +165,5 @@ function fwdBack(isFwd) {
     imageCounter--;
     if(imageCounter < 0) imageCounter = imagesCollection.length - 1;
   }
-  generatedImages[imageCounter].classList.add("active");
-  generatedMiniature[imageCounter].classList.add("active");
+  addClassActive();
 }
